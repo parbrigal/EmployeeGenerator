@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="783.0" prefWidth="810.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.parbrigal.main.ExportSettingsController">
+   <children>
+      <AnchorPane layoutX="-8.0" layoutY="135.0" prefHeight="149.0" prefWidth="810.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label layoutX="20.0" layoutY="12.0" prefHeight="17.0" prefWidth="317.0" text="Job Titles, Job Grades" textFill="#2b579a">
+               <font>
+                  <Font name="Segoe UI Light" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="40.0" layoutY="65.0" prefWidth="103.0" text="Job Title" />
+            <Spinner fx:id="jtSpinner" layoutX="250.0" layoutY="63.0" />
+            <ComboBox fx:id="jtFixed" layoutX="450.0" layoutY="63.0" prefWidth="150.0" />
+            <Label layoutX="40.0" layoutY="105.0" text="Job Grade" />
+            <Spinner fx:id="jgSpinner" layoutX="250.0" layoutY="101.0" />
+            <ComboBox fx:id="jgFixed" layoutX="450.0" layoutY="101.0" prefWidth="150.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="281.0" prefHeight="204.0" prefWidth="802.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Spinner fx:id="depSpinner" layoutX="250.0" layoutY="100.0" />
+            <Spinner fx:id="divSpinner" layoutX="250.0" layoutY="133.0" />
+            <Spinner fx:id="ppSpinner" layoutX="250.0" layoutY="170.0" />
+            <ComboBox fx:id="ccFixed" layoutX="450.0" layoutY="66.0" prefWidth="150.0" />
+            <ComboBox fx:id="depFixed" layoutX="450.0" layoutY="100.0" prefWidth="150.0" />
+            <ComboBox fx:id="divFixed" layoutX="450.0" layoutY="133.0" prefWidth="150.0" />
+            <ComboBox fx:id="ppFixed" layoutX="450.0" layoutY="170.0" prefWidth="150.0" />
+            <CheckBox fx:id="includeCostCentre" layoutX="29.0" layoutY="70.0" mnemonicParsing="false" prefWidth="136.0" text="Include Cost Centre" />
+            <CheckBox fx:id="includeDepartment" layoutX="29.0" layoutY="104.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="136.0" text="Include Departments" />
+            <CheckBox fx:id="includePaypoint" layoutX="29.0" layoutY="174.0" mnemonicParsing="false" prefWidth="136.0" text="Include Pay Points" />
+            <CheckBox fx:id="includeDivision" layoutX="29.0" layoutY="137.0" mnemonicParsing="false" prefWidth="136.0" text="Include Divisions" />
+            <Label layoutX="14.0" layoutY="16.0" prefHeight="25.0" prefWidth="662.0" text="Cost Centres, Departments, Divisions, Pay Points" textFill="#2b579a">
+               <font>
+                  <Font name="Segoe UI Light" size="24.0" />
+               </font>
+            </Label>
+            <Spinner fx:id="ccSpinner" layoutX="250.0" layoutY="66.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="485.0" prefHeight="222.0" prefWidth="802.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label fx:id="employmentDateL" layoutX="29.0" layoutY="101.0" text="Employment Date" />
+            <Label fx:id="engagementDateL" layoutX="377.0" layoutY="101.0" prefHeight="17.0" prefWidth="136.0" text="Engagement Date" />
+            <DatePicker fx:id="employmentDate" layoutX="168.0" layoutY="97.0" prefHeight="25.0" prefWidth="149.0" />
+            <DatePicker fx:id="engagementDate" layoutX="549.0" layoutY="97.0" prefHeight="25.0" prefWidth="150.0" />
+            <Label fx:id="firstPayIntervalL" layoutX="29.0" layoutY="139.0" prefHeight="17.0" prefWidth="136.0" text="First Pay Interval" />
+            <DatePicker fx:id="firstPayInterval" layoutX="549.0" layoutY="135.0" prefHeight="25.0" prefWidth="150.0" />
+            <Label fx:id="irp5StartDateL" layoutX="377.0" layoutY="139.0" prefHeight="17.0" prefWidth="136.0" text="IRP5 Start Date" />
+            <DatePicker fx:id="irp5StartDate" layoutX="168.0" layoutY="134.0" prefHeight="25.0" prefWidth="150.0" />
+            <Label layoutX="14.0" layoutY="9.0" text="Dates" textFill="#2b579a">
+               <font>
+                  <Font name="Segoe UI Light" size="24.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="random" layoutX="29.0" layoutY="60.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="120.0" text="Random Dates" />
+            <RadioButton fx:id="fixed" layoutX="170.0" layoutY="60.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="120.0" text="Fixed Dates" />
+            <DatePicker fx:id="startDate" layoutX="168.0" layoutY="116.0" prefHeight="25.0" prefWidth="150.0" />
+            <DatePicker fx:id="endDate" layoutX="549.0" layoutY="116.0" prefHeight="25.0" prefWidth="150.0" />
+            <Label fx:id="startDateL" layoutX="29.0" layoutY="120.0" prefHeight="17.0" prefWidth="95.0" text="Start Date" />
+            <Label fx:id="endDateL" layoutX="377.0" layoutY="120.0" prefHeight="17.0" prefWidth="95.0" text="End Date" />
+            <Label fx:id="irp5StartDateL1" layoutX="377.0" layoutY="175.0" prefHeight="17.0" prefWidth="136.0" text="Job Grade Effective Date" />
+            <DatePicker fx:id="jobGradeEffectiveDate" layoutX="549.0" layoutY="171.0" prefHeight="25.0" prefWidth="150.0" />
+            <Label fx:id="irp5StartDateL11" layoutX="29.0" layoutY="175.0" prefHeight="17.0" prefWidth="136.0" text="Job Title Effective Date" />
+            <DatePicker fx:id="jobTitleEffectiveDate" layoutX="168.0" layoutY="171.0" prefHeight="25.0" prefWidth="150.0" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="okButton" layoutX="279.0" layoutY="719.0" mnemonicParsing="false" onAction="#save" prefHeight="38.0" prefWidth="105.0" stylesheets="@css/JMetroButton.css" text="Save" textFill="WHITE" />
+      <Button fx:id="cancelButton" layoutX="405.0" layoutY="719.0" mnemonicParsing="false" onAction="#close" prefHeight="38.0" prefWidth="105.0" text="Cancel" />
+      <AnchorPane layoutY="-2.0" prefHeight="142.0" prefWidth="802.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label layoutX="250.0" layoutY="99.0" text="Employment Type" />
+            <CheckBox fx:id="includePassportDetail" layoutX="172.0" layoutY="62.0" mnemonicParsing="false" />
+            <ComboBox fx:id="employmentTypes" layoutX="450.0" layoutY="95.0" prefWidth="150.0" />
+            <Label layoutX="29.0" layoutY="61.0" text="Include Passport Detail" />
+            <Label layoutX="250.0" layoutY="62.0" text="Payment Rate" />
+            <ComboBox fx:id="paymentTypes" layoutX="450.0" layoutY="58.0" prefWidth="150.0" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="317.0" text="Employee Specific" textFill="#2b579a">
+         <font>
+            <Font name="Segoe UI Light" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

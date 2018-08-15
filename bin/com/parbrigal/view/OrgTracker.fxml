@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="439.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.parbrigal.main.OrgTrackerController">
+   <children>
+      <ComboBox fx:id="type" layoutX="14.0" layoutY="14.0" prefHeight="38.0" prefWidth="259.0" />
+      <TextField fx:id="text" layoutX="40.0" layoutY="344.0" prefHeight="38.0" prefWidth="207.0" />
+      <Button fx:id="add" layoutX="14.0" layoutY="400.0" mnemonicParsing="false" onAction="#add" prefHeight="38.0" prefWidth="100.0" text="Add" />
+      <Button fx:id="get" layoutX="293.0" layoutY="14.0" mnemonicParsing="false" onAction="#get" prefHeight="38.0" prefWidth="79.0" text="Get!" />
+      <Button fx:id="delete" layoutX="254.0" layoutY="400.0" mnemonicParsing="false" onAction="#delete" prefHeight="38.0" prefWidth="100.0" text="Delete" />
+      <ListView fx:id="table" layoutX="40.0" layoutY="95.0" prefHeight="213.0" prefWidth="207.0" />
+      <Button fx:id="update" layoutX="133.0" layoutY="400.0" mnemonicParsing="false" onAction="#update" prefHeight="38.0" prefWidth="100.0" text="Update" />
+   </children>
+</AnchorPane>

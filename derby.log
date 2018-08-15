@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Thu Jul 12 15:16:42 CAT 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-0164-8ea2-f6b1-00000ebdbbd0 
+on database directory C:\Git\Projects\EmployeeGeneratorMKII\zaqae with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+Loaded from file:/C:/Git/Projects/EmployeeGeneratorMKII/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_144-b01
+user.dir=C:\Git\Projects\EmployeeGeneratorMKII
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

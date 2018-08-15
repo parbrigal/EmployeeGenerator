@@ -1,0 +1,1081 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<project name="EmployeeGeneratorMKII" default="do-deploy" basedir="."  xmlns:fx="javafx:com.sun.javafx.tools.ant">
+	<target name="init-fx-tasks">
+		<path id="fxant">
+			<filelist>
+				<file name="${java.home}\..\lib\ant-javafx.jar"/>
+				<file name="${java.home}\lib\jfxrt.jar"/>
+				<file name="${basedir}"/>
+			</filelist>
+		</path>
+	
+		<taskdef resource="com/sun/javafx/tools/ant/antlib.xml"
+			uri="javafx:com.sun.javafx.tools.ant"
+			classpathref="fxant"/>
+	</target>
+	<target name="setup-staging-area">
+		<delete dir="externalLibs" />
+		<delete dir="project" />
+		<delete dir="projectRefs" />
+	
+		<mkdir dir="externalLibs" />
+	
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="saaj-impl-1.3.18.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="logback-classic-1.1.6.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="jtds-1.2.8.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="geronimo-transaction-3.1.1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="commonj-api.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="jasper.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="howl-1.0.1-1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="tomee-catalina-1.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="tomcat-jdbc.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="cxf-rt-management-2.6.16.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="cxf-rt-rs-extension-search-2.6.16.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="tomcat-i18n-fr.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="ecj-4.4.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="wsdl4j-1.6.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="tomcat-util.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="cxf-api-2.6.16.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-jee-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="commons-lang3-3.3.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="tomee-common-1.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-http-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="mimepull-1.7.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="sxc-runtime-0.8.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="tomee-mojarra-1.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="tomcat-i18n-ja.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="javaee-api-6.0-6.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="commons-collections-3.2.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="tomcat-coyote.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openwebbeans-ee-1.2.7.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="xmlsec-1.5.6.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="cxf-rt-frontend-jaxrs-2.6.16.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="jansi-1.8.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="tomee-myfaces-1.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-api-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="cxf-rt-databinding-jaxb-2.6.16.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="FastInfoset-1.2.12.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="cxf-rt-rs-security-oauth2-2.6.16.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="xbean-asm5-shaded-4.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="jul-to-slf4j-1.7.19.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="commons-dbcp-1.4.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="catalina-tribes.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="ForceReplicationValve.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="cxf-rt-frontend-jaxws-2.6.16.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-client-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-loader-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="logback-core-1.1.6.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="slf4j-api-1.7.19.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="websocket-api.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openwebbeans-ee-common-1.2.7.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="xbean-bundleutils-4.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="xmltooling-1.3.2-1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openwebbeans-el22-1.2.7.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="tomcat-api.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="tomee-loader-1.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="hsqldb-2.3.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="jaxb-impl.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="swizzle-stream-1.6.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="bval-jsr303-0.5.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="tomee-webservices-1.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Git\Projects\EmployeeGeneratorMKII\lib">
+				<filename name="charm-glisten-4.4.1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="geronimo-connector-3.1.1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Git\Projects\EmployeeGeneratorMKII\lib">
+				<filename name="jfxtras-labs-samples-8.0-r6-SNAPSHOT-all.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="cxf-rt-core-2.6.16.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="mbean-annotation-api-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="tomcat-dbcp.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="cxf-rt-bindings-xml-2.6.16.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="cxf-rt-ws-addr-2.6.16.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="catalina.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="activemq-protobuf-1.1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="myfaces-impl-2.1.17.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="joda-time-2.1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="tomee-jaxrs-1.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-javaagent.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="myfaces-api-2.1.17.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Git\Projects\EmployeeGeneratorMKII\lib">
+				<filename name="fxsampler-1.0.10.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="commons-lang-2.6.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="commons-pool-1.5.7.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="commons-digester-1.8.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-webservices-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openws-1.4.2-1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-javaagent-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="activemq-broker-5.10.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Git\Projects\EmployeeGeneratorMKII\lib">
+				<filename name="derby.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="xbean-naming-4.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="tomcat-i18n-es.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-hsql-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="istack-commons-runtime-2.16.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="commons-cli-1.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-jpa-integration-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="cxf-rt-ws-policy-2.6.16.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="activemq-openwire-legacy-5.10.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="c3p0-0.9.1.1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-core-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="jasper-el.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="commons-io-2.4.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="serp-1.14.1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="tomee-jdbc-1.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-jstl-1.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-jee-accessors-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="cxf-rt-rs-security-cors-2.6.16.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="sxc-jaxb-core-0.8.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-cxf-rs-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="cxf-rt-bindings-soap-2.6.16.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="javax.enterprise.concurrent-api-1.0.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="tomcat7-websocket.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="cxf-rt-ws-security-2.6.16.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="commons-beanutils-core-1.8.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Git\Projects\EmployeeGeneratorMKII\lib">
+				<filename name="derbyclient.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="xbean-reflect-4.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="xbean-finder-shaded-4.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="commonj-impl.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="commons-logging-1.1.1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="jaxb-core-2.2.7.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-rest-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="guava-16.0.1.vaadin1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="opensaml-2.5.1-1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openwebbeans-impl-1.2.7.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="jaxb2-basics-runtime-0.9.4.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-server-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openjpa-2.4.0.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="activemq-kahadb-store-5.10.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="xml-resolver-1.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="wss4j-1.6.15.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-ejbd-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-cxf-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="cxf-rt-rs-extension-providers-2.6.16.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="stax2-api-3.1.4.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openwebbeans-web-1.2.7.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="neethi-3.0.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="el-api.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="commons-codec-1.9.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="activemq-ra-5.10.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="catalina-ant.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openwebbeans-ejb-1.2.7.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openwebbeans-jsf-1.2.7.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Git\Projects\EmployeeGeneratorMKII\lib">
+				<filename name="controlsfx-8.40.14.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-cxf-transport-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="servlet-api.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="jcl-over-slf4j-1.7.19.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openejb-concurrency-utilities-ee-4.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="geronimo-javamail_1.4_mail-1.9.0-alpha-2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="cxf-rt-frontend-simple-2.6.16.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="xmlschema-core-2.0.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="activemq-jdbc-store-5.10.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="woodstox-core-asl-4.4.0.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="activemq-client-5.10.2.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="jettison-1.3.4.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="hawtbuf-1.10.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Git\Projects\EmployeeGeneratorMKII\lib">
+				<filename name="controlsfx-samples-8.40.14.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="quartz-openejb-shade-2.2.1.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="tomee-webapp-1.7.3.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="openwebbeans-spi-1.2.7.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="cxf-rt-transports-http-2.6.16.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="log4j-over-slf4j-1.7.19.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="jsp-api.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="bval-core-0.5.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\TomEE\lib">
+				<filename name="catalina-ha.jar"/>
+			</fileset>
+		</copy>
+	
+		<mkdir dir="project" />
+		<copy todir="project">
+			<fileset dir="C:\Git\Projects\EmployeeGeneratorMKII">
+				<include name="src/**" />
+			</fileset>
+		</copy>
+	
+		<mkdir dir="projectRefs" />
+	</target>
+	<target name='do-compile'>
+		<delete dir="build" />
+		<mkdir dir="build/src" />
+		<mkdir dir="build/libs" />
+		<mkdir dir="build/classes" />
+	
+		<!-- Copy project-libs references -->
+		<copy todir="build/libs">
+			<fileset dir="externalLibs">
+				<include name="openejb-cxf-rs-4.7.3.jar"/>
+				<include name="xml-resolver-1.2.jar"/>
+				<include name="wsdl4j-1.6.3.jar"/>
+				<include name="mimepull-1.7.jar"/>
+				<include name="xbean-reflect-4.2.jar"/>
+				<include name="xmlsec-1.5.6.jar"/>
+				<include name="sxc-jaxb-core-0.8.jar"/>
+				<include name="ForceReplicationValve.jar"/>
+				<include name="openejb-jpa-integration-4.7.3.jar"/>
+				<include name="charm-glisten-4.4.1.jar"/>
+				<include name="guava-16.0.1.vaadin1.jar"/>
+				<include name="jtds-1.2.8.jar"/>
+				<include name="commonj-api.jar"/>
+				<include name="openejb-server-4.7.3.jar"/>
+				<include name="cxf-rt-bindings-xml-2.6.16.jar"/>
+				<include name="ecj-4.4.2.jar"/>
+				<include name="cxf-rt-rs-security-cors-2.6.16.jar"/>
+				<include name="hsqldb-2.3.2.jar"/>
+				<include name="openwebbeans-jsf-1.2.7.jar"/>
+				<include name="activemq-protobuf-1.1.jar"/>
+				<include name="cxf-rt-ws-addr-2.6.16.jar"/>
+				<include name="openwebbeans-web-1.2.7.jar"/>
+				<include name="cxf-rt-rs-extension-providers-2.6.16.jar"/>
+				<include name="cxf-rt-ws-policy-2.6.16.jar"/>
+				<include name="tomee-jdbc-1.7.3.jar"/>
+				<include name="servlet-api.jar"/>
+				<include name="geronimo-javamail_1.4_mail-1.9.0-alpha-2.jar"/>
+				<include name="howl-1.0.1-1.jar"/>
+				<include name="myfaces-api-2.1.17.jar"/>
+				<include name="commons-collections-3.2.2.jar"/>
+				<include name="cxf-rt-transports-http-2.6.16.jar"/>
+				<include name="controlsfx-samples-8.40.14.jar"/>
+				<include name="cxf-rt-frontend-simple-2.6.16.jar"/>
+				<include name="openejb-ejbd-4.7.3.jar"/>
+				<include name="woodstox-core-asl-4.4.0.jar"/>
+				<include name="cxf-api-2.6.16.jar"/>
+				<include name="activemq-broker-5.10.2.jar"/>
+				<include name="xmltooling-1.3.2-1.jar"/>
+				<include name="derby.jar"/>
+				<include name="websocket-api.jar"/>
+				<include name="FastInfoset-1.2.12.jar"/>
+				<include name="opensaml-2.5.1-1.jar"/>
+				<include name="logback-core-1.1.6.jar"/>
+				<include name="jaxb-impl.jar"/>
+				<include name="joda-time-2.1.jar"/>
+				<include name="xbean-naming-4.2.jar"/>
+				<include name="tomcat-i18n-es.jar"/>
+				<include name="xbean-finder-shaded-4.2.jar"/>
+				<include name="log4j-over-slf4j-1.7.19.jar"/>
+				<include name="activemq-ra-5.10.2.jar"/>
+				<include name="geronimo-connector-3.1.1.jar"/>
+				<include name="openwebbeans-el22-1.2.7.jar"/>
+				<include name="tomee-myfaces-1.7.3.jar"/>
+				<include name="cxf-rt-frontend-jaxrs-2.6.16.jar"/>
+				<include name="openejb-client-4.7.3.jar"/>
+				<include name="commons-logging-1.1.1.jar"/>
+				<include name="openjpa-2.4.0.jar"/>
+				<include name="tomee-webapp-1.7.3.jar"/>
+				<include name="javax.enterprise.concurrent-api-1.0.jar"/>
+				<include name="commons-digester-1.8.jar"/>
+				<include name="neethi-3.0.3.jar"/>
+				<include name="openejb-cxf-4.7.3.jar"/>
+				<include name="activemq-client-5.10.2.jar"/>
+				<include name="commons-lang-2.6.jar"/>
+				<include name="catalina-ant.jar"/>
+				<include name="swizzle-stream-1.6.2.jar"/>
+				<include name="openejb-concurrency-utilities-ee-4.7.3.jar"/>
+				<include name="commonj-impl.jar"/>
+				<include name="activemq-openwire-legacy-5.10.2.jar"/>
+				<include name="quartz-openejb-shade-2.2.1.jar"/>
+				<include name="openejb-core-4.7.3.jar"/>
+				<include name="catalina.jar"/>
+				<include name="cxf-rt-rs-extension-search-2.6.16.jar"/>
+				<include name="openejb-rest-4.7.3.jar"/>
+				<include name="activemq-jdbc-store-5.10.2.jar"/>
+				<include name="jettison-1.3.4.jar"/>
+				<include name="cxf-rt-frontend-jaxws-2.6.16.jar"/>
+				<include name="openwebbeans-spi-1.2.7.jar"/>
+				<include name="jansi-1.8.jar"/>
+				<include name="openejb-hsql-4.7.3.jar"/>
+				<include name="jul-to-slf4j-1.7.19.jar"/>
+				<include name="c3p0-0.9.1.1.jar"/>
+				<include name="bval-jsr303-0.5.jar"/>
+				<include name="cxf-rt-management-2.6.16.jar"/>
+				<include name="el-api.jar"/>
+				<include name="slf4j-api-1.7.19.jar"/>
+				<include name="openejb-http-4.7.3.jar"/>
+				<include name="xbean-bundleutils-4.2.jar"/>
+				<include name="cxf-rt-bindings-soap-2.6.16.jar"/>
+				<include name="openejb-javaagent.jar"/>
+				<include name="jcl-over-slf4j-1.7.19.jar"/>
+				<include name="sxc-runtime-0.8.jar"/>
+				<include name="xmlschema-core-2.0.3.jar"/>
+				<include name="serp-1.14.1.jar"/>
+				<include name="mbean-annotation-api-4.7.3.jar"/>
+				<include name="tomee-common-1.7.3.jar"/>
+				<include name="openejb-cxf-transport-4.7.3.jar"/>
+				<include name="tomee-mojarra-1.7.3.jar"/>
+				<include name="openwebbeans-ejb-1.2.7.jar"/>
+				<include name="geronimo-transaction-3.1.1.jar"/>
+				<include name="openejb-jee-accessors-4.7.3.jar"/>
+				<include name="xbean-asm5-shaded-4.2.jar"/>
+				<include name="hawtbuf-1.10.jar"/>
+				<include name="commons-lang3-3.3.2.jar"/>
+				<include name="cxf-rt-core-2.6.16.jar"/>
+				<include name="fxsampler-1.0.10.jar"/>
+				<include name="tomcat-i18n-fr.jar"/>
+				<include name="openejb-jee-4.7.3.jar"/>
+				<include name="jasper-el.jar"/>
+				<include name="jsp-api.jar"/>
+				<include name="commons-pool-1.5.7.jar"/>
+				<include name="activemq-kahadb-store-5.10.2.jar"/>
+				<include name="tomcat-api.jar"/>
+				<include name="commons-codec-1.9.jar"/>
+				<include name="tomee-catalina-1.7.3.jar"/>
+				<include name="catalina-ha.jar"/>
+				<include name="jaxb-core-2.2.7.jar"/>
+				<include name="commons-dbcp-1.4.jar"/>
+				<include name="jasper.jar"/>
+				<include name="commons-cli-1.2.jar"/>
+				<include name="saaj-impl-1.3.18.jar"/>
+				<include name="openejb-loader-4.7.3.jar"/>
+				<include name="jaxb2-basics-runtime-0.9.4.jar"/>
+				<include name="tomcat7-websocket.jar"/>
+				<include name="catalina-tribes.jar"/>
+				<include name="istack-commons-runtime-2.16.jar"/>
+				<include name="cxf-rt-ws-security-2.6.16.jar"/>
+				<include name="controlsfx-8.40.14.jar"/>
+				<include name="jfxtras-labs-samples-8.0-r6-SNAPSHOT-all.jar"/>
+				<include name="myfaces-impl-2.1.17.jar"/>
+				<include name="openwebbeans-impl-1.2.7.jar"/>
+				<include name="openws-1.4.2-1.jar"/>
+				<include name="tomee-jaxrs-1.7.3.jar"/>
+				<include name="wss4j-1.6.15.jar"/>
+				<include name="openwebbeans-ee-common-1.2.7.jar"/>
+				<include name="tomcat-dbcp.jar"/>
+				<include name="openejb-webservices-4.7.3.jar"/>
+				<include name="bval-core-0.5.jar"/>
+				<include name="javaee-api-6.0-6.jar"/>
+				<include name="openejb-jstl-1.2.jar"/>
+				<include name="openwebbeans-ee-1.2.7.jar"/>
+				<include name="logback-classic-1.1.6.jar"/>
+				<include name="commons-io-2.4.jar"/>
+				<include name="cxf-rt-databinding-jaxb-2.6.16.jar"/>
+				<include name="tomcat-i18n-ja.jar"/>
+				<include name="tomcat-util.jar"/>
+				<include name="tomee-webservices-1.7.3.jar"/>
+				<include name="tomcat-coyote.jar"/>
+				<include name="cxf-rt-rs-security-oauth2-2.6.16.jar"/>
+				<include name="stax2-api-3.1.4.jar"/>
+				<include name="tomcat-jdbc.jar"/>
+				<include name="derbyclient.jar"/>
+				<include name="tomee-loader-1.7.3.jar"/>
+				<include name="openejb-javaagent-4.7.3.jar"/>
+				<include name="openejb-api-4.7.3.jar"/>
+				<include name="commons-beanutils-core-1.8.3.jar"/>
+			</fileset>
+		</copy>
+	
+		<!-- Copy project references -->
+	
+		<!-- Copy project sources itself -->
+		<copy todir="build/src">
+			<fileset dir="project/src">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+	
+		<javac includeantruntime="false" source="1.8" target="1.8" srcdir="build/src" destdir="build/classes" encoding="Cp1252">
+			<classpath>
+				<fileset dir="build/libs">
+					<include name="*"/>
+				</fileset>
+			</classpath>
+		</javac>
+	
+		<!-- Copy over none Java-Files -->
+		<copy todir="build/classes">
+		<fileset dir="project/src">
+			<exclude name="**/*.java"/>
+		</fileset>
+		</copy>
+	
+	
+	</target>
+	<target name="do-deploy" depends="setup-staging-area, do-compile, init-fx-tasks">
+		<delete file="dist"/>
+		<delete file="deploy" />
+	
+		<mkdir dir="dist" />
+		<mkdir dir="dist/libs" />
+	
+		<copy todir="dist/libs">
+			<fileset dir="externalLibs">
+				<include name="*" />
+			</fileset>
+		</copy>
+	
+		<jar destfile="dist/libs/EmployeeGeneratorMKII-preloader.jar">
+			<fileset dir="build/classes">
+				<include name=".class"/>
+			</fileset>
+		</jar>
+	
+		<fx:resources id="appRes">
+			<fx:fileset dir="dist" requiredFor="preloader"
+				includes="EmployeeGeneratorMKII-preloader.jar"/>
+			<fx:fileset dir="dist" includes="EmployeeGeneratorMKII.jar"/>
+			<fx:fileset dir="dist" includes="libs/*"/>
+		</fx:resources>
+	
+		<fx:application id="fxApplication"
+			name="EmployeeGenerator"
+			mainClass="com.parbrigal.main.EEGeneratorSplash"
+			preloaderClass=""
+			toolkit="fx"
+		/>
+	
+		<mkdir dir="build/classes/META-INF" />
+	
+	
+	
+		<fx:jar destfile="dist/EmployeeGeneratorMKII.jar">
+			<fx:application refid="fxApplication"/>
+			<fileset dir="build/classes">
+			<exclude name=".class" />
+			</fileset>
+			<fx:resources refid="appRes"/>
+	
+			<manifest>
+				<attribute name="Implementation-Vendor" value="parbrigal"/>
+				<attribute name="Implementation-Title" value="EmployeeGenerator"/>
+				<attribute name="Implementation-Version" value="MK-II"/>
+				<attribute name="SplashScreen-Image" value=""/>
+				<attribute name="JavaFX-Feature-Proxy" value="None"/>
+			</manifest>
+		</fx:jar>
+	
+	
+		<mkdir dir="deploy" />
+		<!-- Need to use ${basedir} because somehow the ant task is calculating the directory differently -->
+		<fx:deploy
+			embedJNLP="false"
+			extension="false"
+			includeDT="false"
+			offlineAllowed="true"
+			outdir="${basedir}/deploy"
+			outfile="EmployeeGeneratorMKII" nativeBundles="exe"
+			updatemode="background" >
+	
+			<fx:platform basedir="${java.home}"/>
+			<fx:info title="EmployeeGeneratorMKII" vendor="parbrigal"/>
+	
+			<fx:application refId="fxApplication"/>
+			<fx:resources refid="appRes"/>
+		</fx:deploy>
+	
+	
+	</target>
+</project>

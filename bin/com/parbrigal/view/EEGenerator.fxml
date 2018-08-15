@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="652.0" prefWidth="1160.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.parbrigal.main.controller.EEGeneratorController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="60.0" layoutX="11.0" layoutY="575.0" stroke="#aaa69d" strokeType="INSIDE" strokeWidth="3.0" width="1138.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a5b1c2" height="88.0" layoutX="10.0" layoutY="59.0" stroke="#4b6584" strokeType="INSIDE" strokeWidth="2.0" width="565.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a5b1c2" height="88.0" layoutX="580.0" layoutY="59.0" stroke="#4b6584" strokeType="INSIDE" strokeWidth="2.0" width="565.0" />
+      <TableView fx:id="table" editable="true" layoutX="10.0" layoutY="160.0" prefHeight="404.0" prefWidth="1138.0">
+        <columns>
+          <TableColumn fx:id="eeNo" prefWidth="75.0" text="ee no" />
+            <TableColumn fx:id="surname" prefWidth="111.0" text="surname" />
+            <TableColumn fx:id="name" prefWidth="110.0" text="name" />
+            <TableColumn fx:id="title" prefWidth="110.0" text="title" />
+            <TableColumn fx:id="idNumber" prefWidth="148.0" text="id no" />
+            <TableColumn fx:id="initials" prefWidth="151.0" text="initials" />
+            <TableColumn fx:id="gender" prefWidth="146.0" text="gender" />
+            <TableColumn fx:id="age" prefWidth="146.0" text="age" />
+            <TableColumn fx:id="taxNo" prefWidth="146.0" text="tax no" />
+        </columns>
+      </TableView>
+      <Label layoutX="50.0" layoutY="44.0" />
+      <Label alignment="CENTER" layoutX="668.0" layoutY="62.0" prefHeight="38.0" prefWidth="450.0" text="INCREMENT EMPLOYEE NUMBERS FROM" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <TextField fx:id="noOfEmployees" alignment="CENTER" layoutX="214.0" layoutY="94.0" prefHeight="38.0" prefWidth="132.0" text="100">
+         <font>
+            <Font size="13.0" />
+         </font></TextField>
+      <TextField fx:id="incrementEENo" alignment="CENTER" layoutX="827.0" layoutY="94.0" prefHeight="38.0" prefWidth="132.0" text="BC1" />
+      <MenuBar prefHeight="27.0" prefWidth="1160.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Settings">
+            <items>
+              <MenuItem fx:id="exportSettings" mnemonicParsing="false" onAction="#exportSettings" text="Export Settings" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Tools">
+            <items>
+              <MenuItem fx:id="quickId" mnemonicParsing="false" onAction="#showQuickID" text="Quick ID" />
+                  <MenuItem fx:id="nameTracker" mnemonicParsing="false" onAction="#showNameTracker" text="Name Tracker" />
+                  <MenuItem fx:id="orgTracker" mnemonicParsing="false" onAction="#showOrgTracker" text="Org Setup Tracker" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem fx:id="about" mnemonicParsing="false" onAction="#about" text="About" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <Button fx:id="generate" layoutX="104.0" layoutY="586.0" mnemonicParsing="false" onAction="#generate" prefHeight="38.0" prefWidth="140.0" stylesheets="@css/JMetroButton.css" text="Generate" />
+      <ToggleButtonGroup layoutX="10.0" layoutY="36.0" selectionType="SINGLE" />
+      <ToggleButtonGroup layoutX="12.0" layoutY="36.0" selectionType="SINGLE" />
+      <Button fx:id="export" layoutX="508.0" layoutY="586.0" mnemonicParsing="false" onAction="#startExport" prefHeight="38.0" prefWidth="140.0" stylesheets="@css/JMetroButton.css" text="Import" />
+      <Button fx:id="clear" layoutX="863.0" layoutY="587.0" mnemonicParsing="false" onAction="#clear" prefHeight="38.0" prefWidth="140.0" text="Clear" />
+      <Label alignment="CENTER" layoutX="55.0" layoutY="62.0" prefHeight="38.0" prefWidth="450.0" text="NUMBER OF EMPLOYEES TO GENERATE" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <ImageView fx:id="magnify" fitHeight="27.0" fitWidth="32.0" layoutX="1091.0" layoutY="593.0" onMouseClicked="#showEmployeeDetails" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+         <image>
+            <Image url="@images/viewEE.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="969.0" layoutY="6.0" prefHeight="17.0" prefWidth="187.0" textFill="WHITE" />
+      <Label fx:id="welcome" alignment="CENTER_RIGHT" layoutX="593.0" layoutY="25.0" prefHeight="38.0" prefWidth="540.0" textFill="#2d89ef">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="export1" layoutX="308.0" layoutY="586.0" mnemonicParsing="false" onAction="#startExport" prefHeight="38.0" prefWidth="140.0" stylesheets="@css/JMetroButton.css" text="Export" />
+   </children>
+</AnchorPane>

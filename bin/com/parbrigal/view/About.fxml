@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="406.0" prefWidth="374.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.parbrigal.main.controller.AboutController">
+   <children>
+      <ToggleButtonGroup layoutX="10.0" layoutY="36.0" selectionType="SINGLE" />
+      <ToggleButtonGroup layoutX="12.0" layoutY="36.0" selectionType="SINGLE" />
+      <TextArea editable="false" layoutX="14.0" layoutY="14.0" prefHeight="371.0" prefWidth="333.0" promptText="Version 1.2 (BETA)" style="-fx-background-color: #696969;" />
+   </children>
+</AnchorPane>
